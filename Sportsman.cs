@@ -1,32 +1,32 @@
-﻿using System;
+using System;
 using System.Collections.Generic;
 using System.Text;
+using System.Xml.Linq;
 
 namespace ind_task2
 {
-    class Sportsman
+    public class Sportsman
     {
-        private string lastname;
-        private int age;
-        private string nationality;
-
-        public Sportsman()
+        public string lastname { get; set; }
+        public int age { get; set; }
+        public string nationality { get; set; }
+        
+        public Sportsman(string lastname, int age, string nationality)
         {
-            lastname = "";
-            age = 0;
-            nationality = "";
-        }
-
-        public Sportsman(string _lastname, int _age, string _nationality)
-        {
-            this.lastname = _lastname;
-            this.age = _age;
-            this.nationality = _nationality;
+            this.lastname = lastname;
+            this.age = age;
+            this.nationality = nationality;
         }
 
         public override string ToString()
         {
-            return $"{lastname}, {age}, {nationality}";
+            return $"Name:{lastname}, Age:{age}, Nationality:{nationality}";
+        }
+        public static Sportsman operator ++(Sportsman sportsman)
+        {
+            sportsman.age++;
+            return sportsman;
         }
     }
+    
 }
