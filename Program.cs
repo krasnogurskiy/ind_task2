@@ -1,5 +1,5 @@
-﻿
-using System;
+﻿using System;
+using System.Collections.Generic;
 
 namespace ind_task2
 {
@@ -24,7 +24,7 @@ namespace ind_task2
                     string lastname = Console.ReadLine();
 
                     Console.WriteLine("Enter the age of the athlete:");
-                    int age = int.Parse(Console.ReadLine());
+                    int age = int.Parse(Console.ReadLine()) - 1;
 
                     Console.WriteLine("Enter the citizenship of the athlete:");
                     string nationality = Console.ReadLine();
