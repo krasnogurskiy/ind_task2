@@ -24,14 +24,17 @@ namespace ind_task2
                     string lastname = Console.ReadLine();
 
                     Console.WriteLine("Enter the age of the athlete:");
-                    int age = int.Parse(Console.ReadLine()) - 1;
+                    int age = int.Parse(Console.ReadLine());
 
                     Console.WriteLine("Enter the citizenship of the athlete:");
                     string nationality = Console.ReadLine();
 
+                    Console.WriteLine("Enter the earnings of the athlete:");
+                    decimal earnings = decimal.Parse(Console.ReadLine());
+
 
                     // create a new athlete object using the input values
-                    Sportsman newSportsman = new Sportsman(lastname,age,nationality);
+                    Sportsman newSportsman = new Sportsman(lastname,age,nationality, earnings);
 
                     // add the new athlete object to the list of athletes
                     sportsmen.Add(newSportsman);
@@ -54,12 +57,11 @@ namespace ind_task2
                 // print the list of athletes
                 foreach (Sportsman sportsman in sportsmen)
                 {
-                    sportsman.age++;
+                    // increase the athlete`s age by 1
+                    sportsman.age++;                            
                     Console.WriteLine(sportsman.ToString());
                 }
-                
             }
-            
         }
     }
 }
