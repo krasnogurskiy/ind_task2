@@ -79,43 +79,20 @@ namespace ind_task2
     }
      public class Footballer : Sportsman
     {
-        public Footballer(string lastname, int age, string nationality, string club, decimal contract, int goals) : base(lastname, age, nationality)
-        {
-            goals = GoalsScored;
-            club = Club;
-            contract = (decimal)AnnualContract;
-        }
-
         public string Club { get; set; }
-        public double AnnualContract { get; set; }
+        public decimal AnnualContract { get; set; }
         public int GoalsScored { get; set; }
 
-        /*public double Earnings
+        public Footballer(string lastname, int age, string nationality, string club, decimal contract, int goals) : base(lastname, age, nationality)
         {
-            double earnings = AnnualContract*(1+GoalsScored/100);
-            return earnings;
-        }
-
-        public void PrintInfo()
-        {
-            Console.WriteLine($"{lastname}, {age}, {}");
-        }
-        public Footballer() : base()
-        {
-            GoalsScored = 0;
-            AnnualContract = 0m;
-            Club = "";
-            
-        }*/
-        public virtual decimal Earnings()
-        {
-            decimal earnings = (decimal)AnnualContract*(1 + GoalsScored / 100m);
-            return earnings;
+            Club = club;
+            AnnualContract = contract ;
+            GoalsScored = goals;   
         }
 
         public override decimal CalculateEarnings()
         {
-            return (decimal)AnnualContract*(1+ GoalsScored / 100m);
+            return AnnualContract*(1+ GoalsScored / 100m);
         }
         public override string ToString()
         {
