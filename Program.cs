@@ -1,5 +1,5 @@
-﻿using System;
-using System.Collections.Generic;
+using System;
+using ConsoleApp4;
 
 namespace ind_task2
 {
@@ -29,6 +29,7 @@ namespace ind_task2
                     Console.WriteLine("Enter the citizenship of the athlete:");
                     string nationality = Console.ReadLine();
 
+
                     // create a new athlete object using the input values
                     Sportsman newSportsman = new Sportsman(lastname,age,nationality);
 
@@ -43,21 +44,37 @@ namespace ind_task2
                 {
                     Console.WriteLine("Invalid answer. Please enter Y or N.");
                 }
+
             }
             if (sportsmen.Count == 0)
             {
                 Console.WriteLine("No athletes");
             }
-            else
+            else 
             {
                 // print the list of athletes
+                List<Sportsman> sportsmen_uk = new List<Sportsman>();
+
                 foreach (Sportsman sportsman in sportsmen)
                 {
-                    // increase the athlete`s age by 1
-                    sportsman.age++;                            
+                    sportsman.age++;
                     Console.WriteLine(sportsman.ToString());
+                    if (sportsman.nationality == "ukarinian")
+                    {
+                        sportsmen_uk.Add(sportsman);
+                    }
+                    foreach(Sportsman s in sportsmen_uk)
+                    {
+                        Console.WriteLine(s);
+                    }
+                   
                 }
+                
             }
+            Footballer f = new Footballer("Messsi",35,"argentina","psg",1234234783m,33);
+            Console.WriteLine(f.ToString());
+            TennisPlayer t1 = new TennisPlayer("Federer",32,"spain",1,23m,435m,846m);
+            Console.WriteLine(t1.ToString());
         }
     }
 }
