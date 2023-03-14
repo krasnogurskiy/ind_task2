@@ -29,12 +29,12 @@ namespace ind_task2
                     Console.WriteLine("Enter the citizenship of the athlete:");
                     string nationality = Console.ReadLine();
 
-                    Console.WriteLine("Enter the earnings of the athlete:");
-                    decimal earnings = decimal.Parse(Console.ReadLine());
+                    //Console.WriteLine("Enter the earnings of the athlete:");
+                    //decimal earnings = decimal.Parse(Console.ReadLine());
 
 
                     // create a new athlete object using the input values
-                    Sportsman newSportsman = new Sportsman(lastname,age,nationality, earnings);
+                    Sportsman newSportsman = new Sportsman(lastname,age,nationality);
 
                     // add the new athlete object to the list of athletes
                     sportsmen.Add(newSportsman);
