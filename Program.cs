@@ -19,21 +19,51 @@ namespace ind_task2
 
                 if (answer.ToLower() == "y")
                 {
-                    // prompt the user to enter the details of a new athlete
-                    Console.WriteLine("Enter the name of the athlete:");
-                    string lastname = Console.ReadLine();
+                    // спитати чи тенісист чи футболіст (сфрмулювати окреммі списки для футболістів та тенісистів, як варіант)ee
+                    // 2 варіант так як є але закинути перше всіх футболістів в оди контейнер, а інших в другий, вкінці вивести під одним 'предлогом'
+                    Console.WriteLine("What kind of sport? F/T");
+                    string ans = Console.ReadLine();
+                    
+                    if(ans.ToLower() == "f")
+                    {
+                        Console.WriteLine("Football Player:");
+                        // prompt the user to enter the details of a new athlete
+                        Console.WriteLine("Enter the name of the athlete:");
+                        string lastname = Console.ReadLine();
 
-                    Console.WriteLine("Enter the age of the athlete:");
-                    int age = int.Parse(Console.ReadLine());
+                        Console.WriteLine("Enter the age of the athlete:");
+                        int age = int.Parse(Console.ReadLine());
 
-                    Console.WriteLine("Enter the citizenship of the athlete:");
-                    string nationality = Console.ReadLine();
+                        Console.WriteLine("Enter the citizenship of the athlete:");
+                        string nationality = Console.ReadLine();
 
-                    // create a new athlete object using the input values
-                    Sportsman newSportsman = new Sportsman(lastname,age,nationality);
+                        // create a new athlete object using the input values
+                        Sportsman newFootballer = new Sportsman(lastname,age,nationality);
 
-                    // add the new athlete object to the list of athletes
-                    sportsmen.Add(newSportsman);
+                        // add the new athlete object to the list of athletes
+                        
+                        sportsmen.Add(newFootballer);
+                    }
+                    else if (ans.ToLower() == "t")
+                    {
+                        // prompt the user to enter the details of a new athlete
+                        Console.WriteLine("Enter the name of the athlete:");
+                        string lastname = Console.ReadLine();
+
+                        Console.WriteLine("Enter the age of the athlete:");
+                        int age = int.Parse(Console.ReadLine());
+
+                        Console.WriteLine("Enter the citizenship of the athlete:");
+                        string nationality = Console.ReadLine();
+
+                        // create a new athlete object using the input values
+                        Sportsman newTennis = new Sportsman(lastname, age, nationality);
+
+                        // add the new athlete object to the list of athletes
+                        Console.WriteLine("Tennis Player:");
+                        sportsmen.Add(newTennis);
+                    }
+
                 }
                 else if (answer.ToLower() == "n")
                 {
