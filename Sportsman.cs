@@ -98,11 +98,12 @@ namespace ind_task2
             AnnualContract = contract ;
             GoalsScored = goals;   
         }
-
         public override decimal CalculateEarnings()
         {
             return AnnualContract*(1+ GoalsScored / 100m);
         }
+
+        
         public override string ToString()
         {
             return $"Name:{lastname}, Age:{age}, Income:{CalculateEarnings()}";
