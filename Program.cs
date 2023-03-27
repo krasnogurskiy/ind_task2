@@ -10,15 +10,14 @@ namespace ind_task2
             List<Sportsman> sportsmn = new List<Sportsman>();
             sportsmn.Add(new TennisPlayer("Federer", 40, "Switzerland", 1, 1, 1, 30));
             sportsmn.Add(new Footballer("Messi", 34, "Argentina", "Barcelona", 20, 50));
-            sportsmn.Add(new Footballer("Ronaldo", 36, "Portugal", "Manchester United", 2, 70));
+            sportsmn.Add(new Footballer("Ronaldo", 36, "Portugal", "Manchester United", 221, 70));
             sportsmn.Add(new TennisPlayer("Nadal", 40, "Spain", 1, 3, 1, 30));
 
             sportsmn.Sort();
 
             Sportsman highestEarner = sportsmn[sportsmn.Count - 1];
-            Console.WriteLine($"The sportsman with the highest earnings is: {highestEarner}");
+            Console.WriteLine($"The sportsman with the highest earnings is: {highestEarner}\n\n");
 
-            // create a list to hold the athletes
             List<Sportsman> sportsmen = new List<Sportsman>();
 
             while (true)
@@ -33,9 +32,7 @@ namespace ind_task2
 
                     if (ansF.ToLower() == "y")
                     {
-                        // use var instead of Footballer type for brevity
                         var newFootballer = AddFootballer();
-
                         sportsmen.Add(newFootballer);
                     }
                     else
@@ -46,13 +43,11 @@ namespace ind_task2
                         if (ansT.ToLower() == "y")
                         {
                             var newTennis = AddTennisPlayer();
-
                             sportsmen.Add(newTennis);
                         }
                         else
                         {
                             var newSportsman = AddSportsman();
-
                             sportsmen.Add(newSportsman);
                         }
                     }
@@ -71,10 +66,12 @@ namespace ind_task2
             {
                 Console.WriteLine("No athletes");
             }
-                        else
-             {
+
+            else
+            {
                  List<Sportsman> sportsmen_uk = new List<Sportsman>();
-                 Console.WriteLine("Sportsmen:");
+                 Console.WriteLine("\nSportsmen:");
+
                  foreach (Sportsman sportsman in sportsmen)
                  {
                      Console.WriteLine(sportsman.ToString());
@@ -87,18 +84,22 @@ namespace ind_task2
                      }
 
                  }
-                 Console.WriteLine("Sportsman increased age by 1: ");
+
+                 Console.WriteLine("\nSportsman increased age by 1: ");
+
                  foreach (Sportsman sportsman in sportsmen)
                  {
                      sportsman.age++;
                      Console.WriteLine(sportsman.ToString());
                  }
-                 Console.WriteLine("Ukrainian sportsmen:");
+
+                 Console.WriteLine("\nUkrainian sportsmen:");
+
                  foreach (Sportsman s in sportsmen_uk)
                  {
                      Console.WriteLine(s.ToString());
                  }
-             }
+            }
         }
 
         static Footballer AddFootballer()

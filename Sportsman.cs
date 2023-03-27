@@ -86,7 +86,7 @@ namespace ind_task2
 
         }
     }
-     public class Footballer : Sportsman
+     public class Footballer : Sportsman, IComparable<Footballer>
     {
         public string Club { get; set; }
         public decimal AnnualContract { get; set; }
@@ -102,7 +102,6 @@ namespace ind_task2
         {
             return AnnualContract*(1+ GoalsScored / 100m);
         }
-
         
         public override string ToString()
         {
