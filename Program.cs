@@ -1,4 +1,4 @@
-﻿using System;
+using System;
 using System.Collections.Generic;
 
 namespace ind_task2
@@ -7,7 +7,17 @@ namespace ind_task2
     {
         static void Main(string[] args)
         {
-            
+            List<Sportsman> sportsmn = new List<Sportsman>();
+            sportsmn.Add(new TennisPlayer("Federer", 40, "Switzerland", 1, 1, 1, 30));
+            sportsmn.Add(new Footballer("Messi", 34, "Argentina", "Barcelona", 20, 50));
+            sportsmn.Add(new Footballer("Ronaldo", 36, "Portugal", "Manchester United", 2, 70));
+            sportsmn.Add(new TennisPlayer("Nadal", 40, "Spain", 1, 3, 1, 30));
+
+            sportsmn.Sort();
+
+            Sportsman highestEarner = sportsmn[sportsmn.Count - 1];
+            Console.WriteLine($"The sportsman with the highest earnings is: {highestEarner}");
+
             // create a list to hold the athletes
             List<Sportsman> sportsmen = new List<Sportsman>();
 
@@ -61,16 +71,34 @@ namespace ind_task2
             {
                 Console.WriteLine("No athletes");
             }
-            else
-            {               
-                Console.WriteLine("\n\n");
+                        else
+             {
+                 List<Sportsman> sportsmen_uk = new List<Sportsman>();
+                 Console.WriteLine("Sportsmen:");
+                 foreach (Sportsman sportsman in sportsmen)
+                 {
+                     Console.WriteLine(sportsman.ToString());
 
-                foreach (Sportsman sportsman in sportsmen)
-                {
-                    sportsman.age++;
-                    Console.WriteLine( sportsman.ToString());
-                }
-            }
+
+
+                     if (sportsman.nationality.ToLower() == "ukrainian")
+                     {
+                         sportsmen_uk.Add(sportsman);
+                     }
+
+                 }
+                 Console.WriteLine("Sportsman increased age by 1: ");
+                 foreach (Sportsman sportsman in sportsmen)
+                 {
+                     sportsman.age++;
+                     Console.WriteLine(sportsman.ToString());
+                 }
+                 Console.WriteLine("Ukrainian sportsmen:");
+                 foreach (Sportsman s in sportsmen_uk)
+                 {
+                     Console.WriteLine(s.ToString());
+                 }
+             }
         }
 
         static Footballer AddFootballer()
