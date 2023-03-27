@@ -68,10 +68,25 @@ namespace ind_task2
                             int age = int.Parse(Console.ReadLine());
 
                             Console.WriteLine("Enter the citizenship of the athlete:");
+
                             string nationality = Console.ReadLine();
 
+                            Console.WriteLine("Enter the world rating:");
+                            int ranking = int.Parse(Console.ReadLine());
+
+                            Console.WriteLine("Enter the number of first prizes:");
+                            decimal prize1 = decimal.Parse(Console.ReadLine());
+                            
+                            Console.WriteLine("Enter the number of second prizes:");
+                            decimal prize2 = decimal.Parse(Console.ReadLine());
+
+                            Console.WriteLine("Enter the number of third prizes:");
+                            decimal prize3 = decimal.Parse(Console.ReadLine());
+
+                            
+
                             // create a new athlete object using the input values
-                            Sportsman newTennis = new Sportsman(lastname, age, nationality);
+                            TennisPlayer newTennis = new TennisPlayer(lastname, age, nationality, ranking, prize1, prize2, prize3);
 
                             // add the new athlete object to the list of athletes
                             Console.WriteLine("Tennis Player!");
