@@ -5,7 +5,7 @@ using System.Xml.Linq;
 
 namespace ind_task2
 {
-    public class Sportsman
+    public class Sportsman : IComparable<Sportsman>
     {
         public string lastname { get; set; }
         public int age { get; set; }
@@ -46,8 +46,12 @@ namespace ind_task2
         {
             return a.CalculateEarnings() < b.CalculateEarnings();
         }
+        public int CompareTo(Sportsman other)
+        {
+            return CalculateEarnings().CompareTo(other.CalculateEarnings());
+        }
     }
-    public class TennisPlayer : Sportsman
+    public class TennisPlayer : Sportsman,  IComparable<TennisPlayer>
     {
         public int Ranking { get; set; }
         public decimal Prize1 { get; set; }
@@ -76,6 +80,11 @@ namespace ind_task2
         {
             return $"Name:{lastname}, Age:{age}, Income:{CalculateEarnings()}";
         }
+        public int CompareTo(TennisPlayer other)
+        {
+            return this.CalculateEarnings().CompareTo(other.CalculateEarnings());
+
+        }
     }
      public class Footballer : Sportsman
     {
@@ -97,6 +106,10 @@ namespace ind_task2
         public override string ToString()
         {
             return $"Name:{lastname}, Age:{age}, Income:{CalculateEarnings()}";
+        }
+        public int CompareTo(Footballer other)
+        {
+            return this.CalculateEarnings().CompareTo(other.CalculateEarnings());
         }
     }
 }
