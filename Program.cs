@@ -17,6 +17,9 @@ namespace ind_task2
 
             Sportsman highestEarner = sportsmn[sportsmn.Count - 1];
             Console.WriteLine($"The sportsman with the highest earnings is: {highestEarner}\n\n");
+            
+            decimal sumEarnings = sportsmn.SumEarnings();
+            Console.WriteLine($"The total earnings of sportsmen: {sumEarnings}");
 
             List<Sportsman> sportsmen = new List<Sportsman>();
 
