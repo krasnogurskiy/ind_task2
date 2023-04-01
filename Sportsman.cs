@@ -112,5 +112,24 @@ namespace ind_task2
             return this.CalculateEarnings().CompareTo(other.CalculateEarnings());
         }
     }
+     public static class SportsmanExtensions
+    {
+        public static decimal SumEarnings(this IEnumerable<Sportsman> sportsmen)
+        {
+            decimal sum = 0;
+            foreach (var sportsman in sportsmen)
+            {
+                if (sportsman is TennisPlayer)
+                {
+                    sum += ((TennisPlayer)sportsman).CalculateEarnings();
+                }
+                else if (sportsman is Footballer)
+                {
+                    sum += ((Footballer)sportsman).CalculateEarnings();
+                }
+            }
+            return sum;
+        }
+    }
 }
 
