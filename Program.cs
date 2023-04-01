@@ -10,16 +10,27 @@ namespace ind_task2
             List<Sportsman> sportsmn = new List<Sportsman>();
             sportsmn.Add(new TennisPlayer("Federer", 40, "Switzerland", 1, 1, 1, 30));
             sportsmn.Add(new Footballer("Messi", 34, "Argentina", "Barcelona", 20, 50));
-            sportsmn.Add(new Footballer("Ronaldo", 36, "Portugal", "Manchester United", 221, 70));
-            sportsmn.Add(new TennisPlayer("Nadal", 40, "Spain", 1, 3, 1, 30));
+            sportsmn.Add(new Footballer("Ronaldo", 39, "Portugal", "Manchester United", 221, 70));
+            sportsmn.Add(new TennisPlayer("Nadal", 42, "Spain", 1, 3, 1, 30));
+
+            Console.WriteLine("Sporsman who ended their career:\n ");
+            foreach (Sportsman sportsman in sportsmn)
+            {
+                if (sportsman.age > 39)
+                {
+                    sportsman.CareerEndEvent += SportsmanCareerEndEvent;
+                    sportsman.EndCareer();
+                }
+            } 
 
             sportsmn.Sort();
 
             Sportsman highestEarner = sportsmn[sportsmn.Count - 1];
-            Console.WriteLine($"The sportsman with the highest earnings is: {highestEarner}\n\n");
+            Console.WriteLine($"\n\nThe sportsman with the highest earnings is: {highestEarner}\n\n");
             
             decimal sumEarnings = sportsmn.SumEarnings();
-            Console.WriteLine($"The total earnings of sportsmen: {sumEarnings}");
+            Console.WriteLine($"The total earnings of sportsmen: {sumEarnings}\n\n");
+
 
             List<Sportsman> sportsmen = new List<Sportsman>();
 
@@ -105,6 +116,12 @@ namespace ind_task2
             }
         }
 
+  
+        private static void SportsmanCareerEndEvent(Sportsman sportsman)
+        {
+            Console.WriteLine($"{sportsman.lastname} has ended their career.");
+        }
+       
         static Footballer AddFootballer()
         {
             Console.WriteLine("Enter the name of the footballer:");

@@ -5,12 +5,14 @@ using System.Xml.Linq;
 
 namespace ind_task2
 {
+    public delegate void CareerEndEventHandler(Sportsman sportsman);
     public class Sportsman : IComparable<Sportsman>
     {
         public string lastname { get; set; }
         public int age { get; set; }
         public string nationality { get; set; }
-        
+
+        public event CareerEndEventHandler CareerEndEvent;
 
         public Sportsman()
         {
@@ -50,6 +52,12 @@ namespace ind_task2
         {
             return CalculateEarnings().CompareTo(other.CalculateEarnings());
         }
+        public void EndCareer()
+        {
+            CareerEndEvent?.Invoke(this);
+        }
+
+
     }
     public class TennisPlayer : Sportsman,  IComparable<TennisPlayer>
     {
