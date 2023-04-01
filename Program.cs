@@ -31,7 +31,6 @@ namespace ind_task2
             decimal sumEarnings = sportsmn.SumEarnings();
             Console.WriteLine($"The total earnings of sportsmen: {sumEarnings}\n\n");
 
-
             List<Sportsman> sportsmen = new List<Sportsman>();
 
             while (true)
@@ -89,14 +88,10 @@ namespace ind_task2
                  foreach (Sportsman sportsman in sportsmen)
                  {
                      Console.WriteLine(sportsman.ToString());
-
-
-
                      if (sportsman.nationality.ToLower() == "ukrainian")
                      {
                          sportsmen_uk.Add(sportsman);
                      }
-
                  }
 
                  Console.WriteLine("\nSportsman increased age by 1: ");
@@ -115,7 +110,6 @@ namespace ind_task2
                  }
             }
         }
-
   
         private static void SportsmanCareerEndEvent(Sportsman sportsman)
         {

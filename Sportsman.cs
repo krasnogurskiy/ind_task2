@@ -11,7 +11,6 @@ namespace ind_task2
         public string lastname { get; set; }
         public int age { get; set; }
         public string nationality { get; set; }
-
         public event CareerEndEventHandler CareerEndEvent;
 
         public Sportsman()
@@ -20,7 +19,6 @@ namespace ind_task2
             age = 0;
             nationality = string.Empty;
         }
-      
         public Sportsman(string lastname, int age, string nationality)
         {
             this.lastname = lastname;
@@ -56,8 +54,6 @@ namespace ind_task2
         {
             CareerEndEvent?.Invoke(this);
         }
-
-
     }
     public class TennisPlayer : Sportsman,  IComparable<TennisPlayer>
     {
@@ -91,7 +87,6 @@ namespace ind_task2
         public int CompareTo(TennisPlayer other)
         {
             return this.CalculateEarnings().CompareTo(other.CalculateEarnings());
-
         }
     }
      public class Footballer : Sportsman, IComparable<Footballer>
@@ -110,7 +105,6 @@ namespace ind_task2
         {
             return AnnualContract*(1+ GoalsScored / 100m);
         }
-        
         public override string ToString()
         {
             return $"Name:{lastname}, Age:{age}, Income:{CalculateEarnings()}";
